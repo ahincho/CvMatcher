@@ -17,7 +17,7 @@ async function bootstrap() {
   );
   const documentConfiguration = new DocumentBuilder()
     .setTitle('CvMatcher - Restful API')
-    .setDescription('API Documentation for CvMatcher Project')
+    .setDescription('API Documentation for CvMatcher Job Offers Automation with Playwright')
     .setVersion('1.0.0')
     .addBearerAuth()
     .setContact(
@@ -25,7 +25,7 @@ async function bootstrap() {
       'https://github.com/ahincho',
       'ahincho@unsa.edu.pe',
     )
-    .setTermsOfService('https://github.com/ahincho/NestJs-Scrapping')
+    .setTermsOfService('https://github.com/ahincho/CvMatcher')
     .build();
   const swaggerDocument = SwaggerModule.createDocument(
     app,
