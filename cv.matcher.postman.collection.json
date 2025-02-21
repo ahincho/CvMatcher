@@ -1,0 +1,430 @@
+{
+	"info": {
+		"_postman_id": "0a4fbbe8-e97f-4132-8d90-ff89c8c898be",
+		"name": "CvMatcher",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "28629003"
+	},
+	"item": [
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "Administrator",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"ahincho@unsa.edu.pe\",\r\n    \"password\": \"ahincho@dev\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{server}}/{{auth}}",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"{{auth}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Premium",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"juan.perez@example.com\",\r\n    \"password\": \"juan.perez@dev\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{server}}/{{auth}}",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"{{auth}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Standard",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"maria.gonzalez@example.com\",\r\n    \"password\": \"maria.gonzales@dev\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{server}}/{{auth}}",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"{{auth}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Users",
+			"item": [
+				{
+					"name": "Create One User",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"firstname\": \"Angel Eduardo\",\r\n    \"lastname\": \"Hincho Jove\",\r\n    \"email\": \"ahincho@unsa.edu.pe\",\r\n    \"password\": \"ahincho@dev\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{server}}/{{users}}",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"{{users}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Find Users",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{server}}/{{users}}?page=0&size=50",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"{{users}}"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "0"
+								},
+								{
+									"key": "size",
+									"value": "50"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Find One User",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{server}}/{{users}}/1",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"{{users}}",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete One User",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{server}}/{{users}}/1",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"{{users}}",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"auth": {
+				"type": "bearer",
+				"bearer": [
+					{
+						"key": "token",
+						"value": "{{jwt}}",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"packages": {},
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"packages": {},
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Roles",
+			"item": [
+				{
+					"name": "Find Roles",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{server}}/{{roles}}?page=0&size=50",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"{{roles}}"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "0"
+								},
+								{
+									"key": "size",
+									"value": "50"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Find One Role",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{server}}/{{roles}}/1",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"{{roles}}",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"auth": {
+				"type": "bearer",
+				"bearer": [
+					{
+						"key": "token",
+						"value": "{{jwt}}",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"packages": {},
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"packages": {},
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Jobs",
+			"item": [
+				{
+					"name": "Find Jobs",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{server}}/{{jobs}}",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"{{jobs}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Find One Job",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{server}}/{{jobs}}/592b04f1-c3d5-2220-6a07-761bc1ab9431",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"{{jobs}}",
+								"592b04f1-c3d5-2220-6a07-761bc1ab9431"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"auth": {
+				"type": "bearer",
+				"bearer": [
+					{
+						"key": "token",
+						"value": "{{jwt}}",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"packages": {},
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"packages": {},
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "server",
+			"value": "localhost:3000",
+			"type": "string"
+		},
+		{
+			"key": "users",
+			"value": "api/v1/users",
+			"type": "string"
+		},
+		{
+			"key": "roles",
+			"value": "api/v1/roles",
+			"type": "string"
+		},
+		{
+			"key": "auth",
+			"value": "api/v1/auth",
+			"type": "string"
+		},
+		{
+			"key": "jobs",
+			"value": "api/v1/jobs",
+			"type": "string"
+		},
+		{
+			"key": "jwt",
+			"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFoaW5jaG9AdW5zYS5lZHUucGUiLCJzdWIiOjEsInJvbGVzIjpbIlN0YW5kYXJkIiwiQWRtaW5pc3RyYXRvciJdLCJpYXQiOjE3NDAxMDY5MTMsImV4cCI6MTc0MDEwNzIxM30.i_GMie4SZKeD89ecC35CfoCbIDjvOJqBecdHxtXxpDI",
+			"type": "string"
+		}
+	]
+}
