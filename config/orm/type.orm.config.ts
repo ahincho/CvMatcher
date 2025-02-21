@@ -5,4 +5,5 @@ export default registerAs('typeOrm', () => ({
   retryAttempts: process.env.TYPE_ORM_RETRY_ATTEMPTS,
   retryDelay: process.env.TYPE_ORM_RETRY_DELAY,
   synchronize: process.env.TYPE_ORM_SYNCHRONIZE,
+  logging: process.env.TYPE_ORM_LOGGING,
 }));

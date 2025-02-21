@@ -11,6 +11,7 @@ export class TypeOrmConfigService implements TypeOrmOptionsFactory {
   ) {}
   createTypeOrmOptions(): TypeOrmModuleOptions {
     return {
+      ssl: true,
       type: this.databaseConfigService.vendor,
       host: this.databaseConfigService.host,
       port: this.databaseConfigService.port,
@@ -22,7 +23,7 @@ export class TypeOrmConfigService implements TypeOrmOptionsFactory {
       retryDelay: this.configService.get('typeOrm.retryDelay'),
       autoLoadEntities: true,
       synchronize: this.configService.get('typeOrm.synchronize'),
-      logging: true,
+      logging: this.configService.get('typeOrm.logging'),
     };
   }
 }
@@ -32,4 +33,5 @@ export default () => ({
   retryAttempts: Number(process.env.TYPE_ORM_RETRY_ATTEMPTS),
   retryDelay: Number(process.env.TYPE_ORM_RETRY_DELAY),
   synchronize: process.env.TYPE_ORM_SYNCHRONIZE === 'true',
+  logging: process.env.TYPE_ORM_LOGGING === 'true',
 });

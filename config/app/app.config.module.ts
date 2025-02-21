@@ -26,6 +26,7 @@ import * as Joi from 'joi';
         TYPE_ORM_RETRY_ATTEMPTS: Joi.number().required(),
         TYPE_ORM_RETRY_DELAY: Joi.number().required(),
         TYPE_ORM_SYNCHRONIZE: Joi.boolean().required(),
+        TYPE_ORM_LOGGING: Joi.boolean().required(),
         JWT_SECRET: Joi.string().required(),
         JWT_EXPIRES_IN: Joi.string().required(),
       }),
