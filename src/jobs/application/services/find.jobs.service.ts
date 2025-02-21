@@ -14,7 +14,6 @@ export class FindJobsService implements FindJobsUseCase {
     private readonly jobPersistencePort: JobPersistencePort,
   ) {}
   async execute(roles: string[]): Promise<Partial<Job>[]> {
-    console.log(roles);
     const jobs = await this.jobProviderPort.findJobs();
     const savedJobs = await this.jobPersistencePort.createJobs(jobs);
     return JobFilterUtils.filterJobsByRoles(savedJobs, roles);

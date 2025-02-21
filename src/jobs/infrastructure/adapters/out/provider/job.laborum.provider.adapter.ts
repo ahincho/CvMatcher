@@ -21,10 +21,10 @@ export class JobLaborumProviderAdapter implements JobProviderPort {
     try {
       await page.goto('https://www.laborum.pe/search-jobs', {
         waitUntil: 'domcontentloaded',
-        timeout: 30000,
+        timeout: 60000,
       });
       await page.waitForSelector('li[class^="MuiListItem-root"]', {
-        timeout: 10000,
+        timeout: 30000,
       });
       this.logger.log('Page loaded successfully.');
       const publishedAt = new Date();
